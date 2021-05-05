@@ -33,7 +33,7 @@ async def play(_, message: Message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    await lel.edit("🎵 **Processing** sounds...")
+    await lel.edit("🎵 **Mencari** sounds...")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -52,7 +52,7 @@ async def play(_, message: Message):
 
     except Exception as e:
         lel.edit(
-            "❌ Song not found.\n\nTry another song or maybe spell it properly."
+            "❌ Song Tidak ditemukan.\n\nTry another song or maybe spell it properly."
         )
         print(str(e))
         return
@@ -101,7 +101,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo=thumb_name,
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {} via YouTube Music 😜".format(
+        caption="▶️ **Mulai** here the song requested by {} via YouTube Music 😜".format(
         message.from_user.mention()
         ),
     )
